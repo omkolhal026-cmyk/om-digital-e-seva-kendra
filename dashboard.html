@@ -6,91 +6,165 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dashboard</title>
+<title>Claim Dashboard</title>
 
 <link rel="stylesheet" href="dashboard.css">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="sidebar">
 
-<div class="header">
+<div class="logo">
+<h2>OM DIGITAL</h2>
+<p>Claim Portal</p>
+</div>
 
-<div>
+<ul>
 
-<h1>🏢 OM DIGITAL E-SEVA KENDRA</h1>
+<li class="active">
+<a href="dashboard.html">
+<i class="fa fa-home"></i>
+Dashboard
+</a>
+</li>
 
-<p id="welcome">👤 Welcome Admin</p>
+<li>
+<a href="claim-entry.html">
+<i class="fa fa-file-circle-plus"></i>
+New Claim
+</a>
+</li>
+
+<li>
+<a href="claim-list.html">
+<i class="fa fa-list"></i>
+My Claims
+</a>
+</li>
+
+<li>
+<a href="profile.html">
+<i class="fa fa-user"></i>
+Profile
+</a>
+</li>
+
+<li>
+<a href="index.html">
+<i class="fa fa-right-from-bracket"></i>
+Logout
+</a>
+</li>
+
+</ul>
 
 </div>
 
-<button id="logoutBtn">Logout</button>
+<div class="main">
+
+<div class="topbar">
+
+<h2>Dashboard</h2>
+
+<div class="admin">
+
+<i class="fa fa-user-circle"></i>
+
+<span>Sub Agent</span>
+
+</div>
 
 </div>
 
 <div class="cards">
 
-<div class="card">
+<div class="card" onclick="location.href='claim-entry.html'">
 
-<h3>📊 Today's Registration</h3>
+<i class="fa fa-file-circle-plus"></i>
 
-<h1 id="todayReg">0</h1>
+<h3>New Claim Entry</h3>
+
+<p>Create New Claim</p>
+
+</div>
+
+<div class="card" onclick="location.href='claim-list.html'">
+
+<i class="fa fa-list"></i>
+
+<h3>My Claim List</h3>
+
+<p>View Claims</p>
 
 </div>
 
 <div class="card">
 
-<h3>📊 Today's Renewal</h3>
+<i class="fa fa-calendar-days"></i>
 
-<h1 id="todayRen">0</h1>
+<h3>Today's Entry</h3>
 
-</div>
-
-<div class="card">
-
-<h3>📈 Total Registration</h3>
-
-<h1 id="totalReg">0</h1>
+<h1 id="today">0</h1>
 
 </div>
 
 <div class="card">
 
-<h3>📈 Total Renewal</h3>
+<i class="fa fa-indian-rupee-sign"></i>
 
-<h1 id="totalRen">0</h1>
+<h3>Total Amount</h3>
+
+<h1 id="amount">₹0</h1>
 
 </div>
 
 </div>
 
-<div class="menu">
+<div class="table-box">
 
-<button onclick="window.location='registration.html'">
+<h3>Recent Claims</h3>
 
-📝 New Registration
+<table>
 
-</button>
+<thead>
 
-<button onclick="window.location='renewal.html'">
+<tr>
 
-🔄 Renewal
+<th>Name</th>
 
-</button>
+<th>MH No.</th>
 
-<button disabled>
+<th>Taluka</th>
 
-📋 Claim (Coming Soon)
+<th>Amount</th>
 
-</button>
+<th>Date</th>
 
-<button id="logoutBtn2">
+</tr>
 
-👤 Logout
+</thead>
 
-</button>
+<tbody id="claimTable">
+
+<tr>
+
+<td colspan="5" align="center">
+
+No Claim Found
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
 
 </div>
 
