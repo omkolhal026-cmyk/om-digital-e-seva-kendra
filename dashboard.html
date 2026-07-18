@@ -1,493 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OM DIGITAL E-SEVA KENDRA</title>
+// ======================================
+// OM DIGITAL E-SEVA KENDRA
+// Dashboard JS
+// ======================================
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+// Check Login
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+const user = JSON.parse(localStorage.getItem("user"));
 
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+if (!user) {
+    window.location.href = "login.html";
 }
 
-body{
-background:#f4f7fb;
-display:flex;
-}
+// Show User
 
-.sidebar{
+document.getElementById("username").innerHTML =
+user.username + " (" + user.role + ")";
 
-width:250px;
-height:100vh;
-background:#0B5ED7;
-position:fixed;
-left:0;
-top:0;
-color:white;
+// Current Date
 
-}
+document.getElementById("todayDate").innerHTML =
+new Date().toLocaleDateString("en-IN");
 
-.logo{
+// Load Claims
 
-padding:25px;
-text-align:center;
-border-bottom:1px solid rgba(255,255,255,.2);
+let claims = JSON.parse(localStorage.getItem("claims")) || [];
 
-}
+// Today Entry
 
-.logo h2{
+document.getElementById("today").innerHTML =
+claims.length;
 
-font-size:24px;
+// Total Amount
 
-}
+let totalAmount = 0;
 
-.logo p{
+claims.forEach(function(item){
 
-font-size:14px;
-opacity:.8;
-
-}
-
-.sidebar ul{
-
-list-style:none;
-margin-top:20px;
-
-}
-
-.sidebar ul li{
-
-margin:8px 15px;
-
-}
-
-.sidebar ul li a{
-
-display:flex;
-align-items:center;
-gap:12px;
-padding:15px;
-color:white;
-text-decoration:none;
-border-radius:10px;
-transition:.3s;
-
-}
-
-.sidebar ul li a:hover{
-
-background:rgba(255,255,255,.15);
-
-}
-
-.active a{
-
-background:white;
-color:#0B5ED7!important;
-
-}
-
-.main{
-
-margin-left:250px;
-width:calc(100% - 250px);
-
-}
-
-.topbar{
-
-height:70px;
-background:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 30px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
-
-}
-
-.user{
-
-display:flex;
-align-items:center;
-gap:10px;
-
-}
-
-.user i{
-
-font-size:35px;
-color:#0B5ED7;
-
-}
-
-.content{
-
-padding:30px;
-
-}
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:20px;
-
-}
-
-.card{
-
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-cursor:pointer;
-transition:.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-5px);
-
-}
-
-.card i{
-
-font-size:40px;
-color:#0B5ED7;
-margin-bottom:15px;
-
-}
-
-.card h2{
-
-font-size:20px;
-
-}
-
-.card p{
-
-margin-top:8px;
-color:gray;
-
-}
-
-.table-box{
-
-margin-top:30px;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-
-}
-
-table{
-
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-
-}
-
-th{
-
-background:#0B5ED7;
-color:white;
-padding:12px;
-
-}
-
-td{
-
-padding:12px;
-border-bottom:1px solid #eee;
-
-}
-
-@media(max-width:768px){
-
-.sidebar{
-
-width:70px;
-
-}
-
-.logo h2,
-.logo p{
-
-display:none;
-
-}
-
-.sidebar ul li a{
-
-justify-content:center;
-
-}
-
-.sidebar ul li a span{
-
-display:none;
-
-}
-
-.main{
-
-margin-left:70px;
-width:calc(100% - 70px);
-
-}
-
-.topbar{
-
-padding:15px;
-
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="sidebar">
-
-<div class="logo">
-
-<h2>OM DIGITAL</h2>
-
-<p>Claim Portal</p>
-
-</div>
-
-<ul>
-
-<li class="active">
-
-<a href="#">
-
-<i class="fa fa-home"></i>
-
-<span>Dashboard</span>
-
-</a>
-
-</li>
-
-<li>
-
-<a href="claim-entry.html">
-
-<i class="fa fa-file-circle-plus"></i>
-
-<span>New Claim</span>
-
-</a>
-
-</li>
-
-<li>
-
-<a href="claim-list.html">
-
-<i class="fa fa-list"></i>
-
-<span>My Claims</span>
-
-</a>
-
-</li>
-
-<li>
-
-<a href="profile.html">
-
-<i class="fa fa-user"></i>
-
-<span>Profile</span>
-
-</a>
-
-</li>
-
-<li>
-
-<a href="#" onclick="logout()">
-
-<i class="fa fa-right-from-bracket"></i>
-
-<span>Logout</span>
-
-</a>
-
-</li>
-
-</ul>
-
-</div>
-
-<div class="main">
-
-<div class="topbar">
-
-<div>
-
-<h2>Claim Dashboard</h2>
-
-<small>OM DIGITAL E-SEVA KENDRA</small>
-
-</div>
-
-<div class="user">
-
-<i class="fa-solid fa-circle-user"></i>
-
-<div>
-
-<b id="username">Sub Agent</b><br>
-
-<small id="todayDate"></small>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="content">
-
-<div class="cards">
-
-<div class="card" onclick="location.href='claim-entry.html'">
-
-<i class="fa fa-file-circle-plus"></i>
-
-<h2>New Claim Entry</h2>
-
-<p>Create New Claim</p>
-
-</div>
-<div class="card">
-
-<i class="fa fa-calendar-check"></i>
-
-<h2 id="today">0</h2>
-
-<p>Today's Entry</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa fa-indian-rupee-sign"></i>
-
-<h2 id="amount">₹0</h2>
-
-<p>Total Amount</p>
-
-</div>
-
-</div>
-
-<div class="table-box">
-
-<h2>Recent Claims</h2>
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Full Name</th>
-<th>MH Number</th>
-<th>Taluka</th>
-<th>Amount</th>
-<th>Date</th>
-
-</tr>
-
-</thead>
-
-<tbody id="claimTable">
-
-<tr>
-
-<td colspan="5" style="text-align:center">
-
-No Claim Found
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-document.getElementById("todayDate").innerHTML=
-new Date().toLocaleDateString();
-
-let username=localStorage.getItem("username") || "Sub Agent";
-
-document.getElementById("username").innerHTML=username;
-
-let claims=JSON.parse(localStorage.getItem("claims")) || [];
-
-let total=0;
-
-claims.forEach(c=>{
-
-total+=Number(c.total || 0);
+totalAmount += Number(item.total || 0);
 
 });
 
-document.getElementById("today").innerHTML=claims.length;
+document.getElementById("amount").innerHTML =
+"₹ " + totalAmount.toLocaleString();
 
-document.getElementById("amount").innerHTML="₹"+total;
+// Recent Claim Table
 
-let table=document.getElementById("claimTable");
+let table = document.getElementById("claimTable");
 
-if(claims.length>0){
+table.innerHTML = "";
 
-table.innerHTML="";
+if(claims.length==0){
 
-claims.reverse().forEach(c=>{
+table.innerHTML = `
+<tr>
+<td colspan="5" style="text-align:center;">
+No Claim Found
+</td>
+</tr>
+`;
 
-table.innerHTML+=`
+}else{
+
+claims.slice().reverse().forEach(function(item){
+
+table.innerHTML += `
 
 <tr>
 
-<td>${c.name}</td>
+<td>${item.name}</td>
 
-<td>${c.mh}</td>
+<td>${item.mh}</td>
 
-<td>${c.taluka}</td>
+<td>${item.taluka}</td>
 
-<td>₹${c.total}</td>
+<td>₹${item.total}</td>
 
-<td>${c.date}</td>
+<td>${item.date}</td>
 
 </tr>
 
@@ -497,16 +85,27 @@ table.innerHTML+=`
 
 }
 
+// Logout
+
 function logout(){
 
-localStorage.removeItem("username");
+if(confirm("Are you sure you want to Logout?")){
 
-window.location="index.html";
+localStorage.removeItem("user");
+localStorage.removeItem("username");
+localStorage.removeItem("role");
+
+window.location.href="login.html";
 
 }
 
-</script>
+}
 
-</body>
+// Auto Refresh
 
-</html>
+setInterval(function(){
+
+document.getElementById("todayDate").innerHTML =
+new Date().toLocaleDateString("en-IN");
+
+},1000);
