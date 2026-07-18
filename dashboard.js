@@ -1,49 +1,66 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxcYjY5sMXMPT8g1hEFMdT62YXrUPeSypUksN9t4lngDMBbGQxil_4Nb3azkiz804QN/exec?action=dashboard";
+// Dashboard JS
 
-// Login Check
-const user = JSON.parse(localStorage.getItem("user"));
+document.addEventListener("DOMContentLoaded", function () {
 
-if (!user) {
-    window.location.href = "login.html";
-}
+    // Login Session Check
+    let user = localStorage.getItem("username");
 
-// Welcome
-document.getElementById("welcome").innerHTML =
-"👤 Welcome " + user.username;
+    if (!user) {
+        window.location.href = "index.html";
+        return;
+    }
 
-// Dashboard Data
-loadDashboard();
+    // User Name Display
+    const userSpan = document.querySelector(".admin span");
+    if (userSpan) {
+        userSpan.innerText = user;
+    }
 
-async function loadDashboard() {
+    // Demo Data
+    let totalEntry = 0;
+    let totalAmount = 0;
 
-    try {
+    let claims = JSON.parse(localStorage.getItem("claims")) || [];
 
-        const response = await fetch(SCRIPT_URL);
+    totalEntry = claims.length;
 
-        const data = await response.json();
+    claims.forEach(c => {
+        totalAmount += Number(c.total || 0);
+    });
 
-        document.getElementById("todayReg").innerHTML = data.todayRegistration;
-        document.getElementById("todayRen").innerHTML = data.todayRenewal;
+    document.getElementById("today").innerText = totalEntry;
+    document.getElementById("amount").innerText = "₹" + totalAmount;
 
-        document.getElementById("totalReg").innerHTML = data.totalRegistration;
-        document.getElementById("totalRen").innerHTML = data.totalRenewal;
+    // Recent Claim List
+    let table = document.getElementById("claimTable");
 
-    } catch (err) {
+    if (claims.length > 0) {
 
-        console.log(err);
+        table.innerHTML = "";
+
+        claims.slice().reverse().forEach(c => {
+
+            table.innerHTML += `
+            <tr>
+                <td>${c.name}</td>
+                <td>${c.mh}</td>
+                <td>${c.taluka}</td>
+                <td>₹${c.total}</td>
+                <td>${c.date}</td>
+            </tr>
+            `;
+
+        });
 
     }
 
-}
+});
 
 // Logout
-document.getElementById("logoutBtn").onclick = logout;
-document.getElementById("logoutBtn2").onclick = logout;
+function logout() {
 
-function logout(){
+    localStorage.removeItem("username");
 
-    localStorage.removeItem("user");
-
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 
 }
