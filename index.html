@@ -1,14 +1,192 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=login.html">
-<title>OM DIGITAL E-SEVA KENDRA</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OM DIGITAL E-SEVA KENDRA | Login</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            background:linear-gradient(135deg,#0f172a,#1d4ed8,#2563eb);
+        }
+
+        .login-box{
+            width:380px;
+            background:#fff;
+            padding:35px;
+            border-radius:20px;
+            box-shadow:0 15px 40px rgba(0,0,0,.25);
+        }
+
+        .logo{
+            width:90px;
+            height:90px;
+            border-radius:50%;
+            display:block;
+            margin:auto;
+            margin-bottom:15px;
+        }
+
+        h2{
+            text-align:center;
+            color:#0f172a;
+            margin-bottom:5px;
+        }
+
+        p{
+            text-align:center;
+            color:#555;
+            margin-bottom:30px;
+        }
+
+        .input-group{
+            position:relative;
+            margin-bottom:20px;
+        }
+
+        .input-group i{
+            position:absolute;
+            left:15px;
+            top:15px;
+            color:#2563eb;
+        }
+
+        .input-group input{
+            width:100%;
+            padding:13px 45px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            outline:none;
+            font-size:15px;
+        }
+
+        .toggle{
+            position:absolute;
+            right:15px;
+            top:15px;
+            cursor:pointer;
+            color:#777;
+        }
+
+        button{
+            width:100%;
+            padding:13px;
+            border:none;
+            border-radius:10px;
+            background:#2563eb;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#1e40af;
+        }
+
+        .footer{
+            text-align:center;
+            margin-top:20px;
+            color:#666;
+            font-size:13px;
+        }
+
+        @media(max-width:420px){
+            .login-box{
+                width:95%;
+            }
+        }
+    </style>
+
+</head>
 <body>
 
-Redirecting...
+<div class="login-box">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" class="logo">
+
+    <h2>OM DIGITAL E-SEVA KENDRA</h2>
+
+    <p>Sub Agent Claim Portal</p>
+
+    <form onsubmit="login(event)">
+
+        <div class="input-group">
+            <i class="fa fa-user"></i>
+            <input type="text" id="username" placeholder="Enter Username" required>
+        </div>
+
+        <div class="input-group">
+            <i class="fa fa-lock"></i>
+            <input type="password" id="password" placeholder="Enter Password" required>
+
+            <i class="fa fa-eye toggle" onclick="showPassword()"></i>
+        </div>
+
+        <button type="submit">
+            LOGIN
+        </button>
+
+    </form>
+
+    <div class="footer">
+        © 2026 OM DIGITAL E-SEVA KENDRA
+    </div>
+
+</div>
+
+<script>
+
+function showPassword(){
+
+let x=document.getElementById("password");
+
+if(x.type==="password"){
+x.type="text";
+}else{
+x.type="password";
+}
+
+}
+
+function login(e){
+
+e.preventDefault();
+
+let username=document.getElementById("username").value;
+let password=document.getElementById("password").value;
+
+if(username==="admin" && password==="123456"){
+
+alert("Login Successful");
+
+window.location.href="dashboard.html";
+
+}else{
+
+alert("Invalid Username or Password");
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
