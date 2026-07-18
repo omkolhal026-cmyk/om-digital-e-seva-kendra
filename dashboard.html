@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div>
+
+<h1>🏢 OM DIGITAL E-SEVA KENDRA</h1>
+
+<p id="welcome">👤 Welcome Admin</p>
+
+</div>
+
+<button id="logoutBtn">Logout</button>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>📊 Today's Registration</h3>
+
+<h1 id="todayReg">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>📊 Today's Renewal</h3>
+
+<h1 id="todayRen">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>📈 Total Registration</h3>
+
+<h1 id="totalReg">0</h1>
+
+</div>
+
+<div class="card">
+
+<h3>📈 Total Renewal</h3>
+
+<h1 id="totalRen">0</h1>
+
+</div>
+
+</div>
+
+<div class="menu">
+
+<button onclick="window.location='registration.html'">
+
+📝 New Registration
+
+</button>
+
+<button onclick="window.location='renewal.html'">
+
+🔄 Renewal
+
+</button>
+
+<button disabled>
+
+📋 Claim (Coming Soon)
+
+</button>
+
+<button id="logoutBtn2">
+
+👤 Logout
+
+</button>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>
