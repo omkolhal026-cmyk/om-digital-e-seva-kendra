@@ -1,16 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OM DIGITAL E-SEVA KENDRA</title>
 
-<title>Claim Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f4f7fb;
+display:flex;
+}
+
+.sidebar{
+
+width:250px;
+height:100vh;
+background:#0B5ED7;
+position:fixed;
+left:0;
+top:0;
+color:white;
+
+}
+
+.logo{
+
+padding:25px;
+text-align:center;
+border-bottom:1px solid rgba(255,255,255,.2);
+
+}
+
+.logo h2{
+
+font-size:24px;
+
+}
+
+.logo p{
+
+font-size:14px;
+opacity:.8;
+
+}
+
+.sidebar ul{
+
+list-style:none;
+margin-top:20px;
+
+}
+
+.sidebar ul li{
+
+margin:8px 15px;
+
+}
+
+.sidebar ul li a{
+
+display:flex;
+align-items:center;
+gap:12px;
+padding:15px;
+color:white;
+text-decoration:none;
+border-radius:10px;
+transition:.3s;
+
+}
+
+.sidebar ul li a:hover{
+
+background:rgba(255,255,255,.15);
+
+}
+
+.active a{
+
+background:white;
+color:#0B5ED7!important;
+
+}
+
+.main{
+
+margin-left:250px;
+width:calc(100% - 250px);
+
+}
+
+.topbar{
+
+height:70px;
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 30px;
+box-shadow:0 3px 10px rgba(0,0,0,.1);
+
+}
+
+.user{
+
+display:flex;
+align-items:center;
+gap:10px;
+
+}
+
+.user i{
+
+font-size:35px;
+color:#0B5ED7;
+
+}
+
+.content{
+
+padding:30px;
+
+}
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:20px;
+
+}
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+cursor:pointer;
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-5px);
+
+}
+
+.card i{
+
+font-size:40px;
+color:#0B5ED7;
+margin-bottom:15px;
+
+}
+
+.card h2{
+
+font-size:20px;
+
+}
+
+.card p{
+
+margin-top:8px;
+color:gray;
+
+}
+
+.table-box{
+
+margin-top:30px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+
+}
+
+th{
+
+background:#0B5ED7;
+color:white;
+padding:12px;
+
+}
+
+td{
+
+padding:12px;
+border-bottom:1px solid #eee;
+
+}
+
+@media(max-width:768px){
+
+.sidebar{
+
+width:70px;
+
+}
+
+.logo h2,
+.logo p{
+
+display:none;
+
+}
+
+.sidebar ul li a{
+
+justify-content:center;
+
+}
+
+.sidebar ul li a span{
+
+display:none;
+
+}
+
+.main{
+
+margin-left:70px;
+width:calc(100% - 70px);
+
+}
+
+.topbar{
+
+padding:15px;
+
+}
+
+}
+
+</style>
 
 </head>
 
@@ -19,45 +266,73 @@
 <div class="sidebar">
 
 <div class="logo">
+
 <h2>OM DIGITAL</h2>
+
 <p>Claim Portal</p>
+
 </div>
 
 <ul>
 
 <li class="active">
-<a href="dashboard.html">
+
+<a href="#">
+
 <i class="fa fa-home"></i>
-Dashboard
+
+<span>Dashboard</span>
+
 </a>
+
 </li>
 
 <li>
+
 <a href="claim-entry.html">
+
 <i class="fa fa-file-circle-plus"></i>
-New Claim
+
+<span>New Claim</span>
+
 </a>
+
 </li>
 
 <li>
+
 <a href="claim-list.html">
+
 <i class="fa fa-list"></i>
-My Claims
+
+<span>My Claims</span>
+
 </a>
+
 </li>
 
 <li>
+
 <a href="profile.html">
+
 <i class="fa fa-user"></i>
-Profile
+
+<span>Profile</span>
+
 </a>
+
 </li>
 
 <li>
-<a href="index.html">
+
+<a href="#" onclick="logout()">
+
 <i class="fa fa-right-from-bracket"></i>
-Logout
+
+<span>Logout</span>
+
 </a>
+
 </li>
 
 </ul>
@@ -68,17 +343,31 @@ Logout
 
 <div class="topbar">
 
-<h2>Dashboard</h2>
+<div>
 
-<div class="admin">
+<h2>Claim Dashboard</h2>
 
-<i class="fa fa-user-circle"></i>
+<small>OM DIGITAL E-SEVA KENDRA</small>
 
-<span>Sub Agent</span>
+</div>
+
+<div class="user">
+
+<i class="fa-solid fa-circle-user"></i>
+
+<div>
+
+<b id="username">Sub Agent</b><br>
+
+<small id="todayDate"></small>
 
 </div>
 
 </div>
+
+</div>
+
+<div class="content">
 
 <div class="cards">
 
@@ -86,29 +375,18 @@ Logout
 
 <i class="fa fa-file-circle-plus"></i>
 
-<h3>New Claim Entry</h3>
+<h2>New Claim Entry</h2>
 
 <p>Create New Claim</p>
 
 </div>
-
-<div class="card" onclick="location.href='claim-list.html'">
-
-<i class="fa fa-list"></i>
-
-<h3>My Claim List</h3>
-
-<p>View Claims</p>
-
-</div>
-
 <div class="card">
 
-<i class="fa fa-calendar-days"></i>
+<i class="fa fa-calendar-check"></i>
 
-<h3>Today's Entry</h3>
+<h2 id="today">0</h2>
 
-<h1 id="today">0</h1>
+<p>Today's Entry</p>
 
 </div>
 
@@ -116,9 +394,9 @@ Logout
 
 <i class="fa fa-indian-rupee-sign"></i>
 
-<h3>Total Amount</h3>
+<h2 id="amount">₹0</h2>
 
-<h1 id="amount">₹0</h1>
+<p>Total Amount</p>
 
 </div>
 
@@ -126,7 +404,7 @@ Logout
 
 <div class="table-box">
 
-<h3>Recent Claims</h3>
+<h2>Recent Claims</h2>
 
 <table>
 
@@ -134,14 +412,10 @@ Logout
 
 <tr>
 
-<th>Name</th>
-
-<th>MH No.</th>
-
+<th>Full Name</th>
+<th>MH Number</th>
 <th>Taluka</th>
-
 <th>Amount</th>
-
 <th>Date</th>
 
 </tr>
@@ -152,7 +426,7 @@ Logout
 
 <tr>
 
-<td colspan="5" align="center">
+<td colspan="5" style="text-align:center">
 
 No Claim Found
 
@@ -168,7 +442,70 @@ No Claim Found
 
 </div>
 
-<script src="dashboard.js"></script>
+</div>
+
+<script>
+
+document.getElementById("todayDate").innerHTML=
+new Date().toLocaleDateString();
+
+let username=localStorage.getItem("username") || "Sub Agent";
+
+document.getElementById("username").innerHTML=username;
+
+let claims=JSON.parse(localStorage.getItem("claims")) || [];
+
+let total=0;
+
+claims.forEach(c=>{
+
+total+=Number(c.total || 0);
+
+});
+
+document.getElementById("today").innerHTML=claims.length;
+
+document.getElementById("amount").innerHTML="₹"+total;
+
+let table=document.getElementById("claimTable");
+
+if(claims.length>0){
+
+table.innerHTML="";
+
+claims.reverse().forEach(c=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${c.name}</td>
+
+<td>${c.mh}</td>
+
+<td>${c.taluka}</td>
+
+<td>₹${c.total}</td>
+
+<td>${c.date}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+function logout(){
+
+localStorage.removeItem("username");
+
+window.location="index.html";
+
+}
+
+</script>
 
 </body>
 
