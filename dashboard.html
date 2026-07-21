@@ -4,14 +4,14 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>OM DIGITAL SOFTWARE</title>
+<title>OM DIGITAL E-SEVA KENDRA</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,43 +19,53 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Poppins,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#eef3fb;
+background:#edf3ff;
 }
 
 .sidebar{
 
 position:fixed;
+
 left:0;
 top:0;
+
 width:250px;
-height:100%;
-background:#0B5ED7;
-color:#fff;
+height:100vh;
+
+background:linear-gradient(180deg,#0B5ED7,#0047B3);
+
+color:white;
 
 }
 
 .logo{
 
-padding:25px;
+padding:30px;
+
 text-align:center;
-border-bottom:1px solid rgba(255,255,255,.2);
+
+border-bottom:1px solid rgba(255,255,255,.15);
 
 }
 
 .logo h2{
 
-font-size:24px;
+font-size:28px;
+font-weight:700;
 
 }
 
 .logo p{
 
-font-size:13px;
-margin-top:5px;
+margin-top:8px;
+
+letter-spacing:1px;
+
+font-size:15px;
 
 }
 
@@ -63,141 +73,316 @@ margin-top:5px;
 
 list-style:none;
 
+margin-top:20px;
+
 }
 
 .menu li{
 
-border-bottom:1px solid rgba(255,255,255,.1);
+margin:8px 15px;
 
 }
 
-.menu li a{
+.menu a{
 
-display:block;
-padding:16px 20px;
-color:#fff;
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:15px 18px;
+
+color:white;
+
 text-decoration:none;
 
+border-radius:12px;
+
+transition:.3s;
+
+font-size:16px;
+
 }
 
-.menu li a:hover{
+.menu a:hover{
 
-background:#084298;
+background:rgba(255,255,255,.18);
 
 }
 
-.menu i{
+.active{
 
-width:25px;
+background:rgba(255,255,255,.22);
 
 }
 
 .main{
 
 margin-left:250px;
+
 padding:25px;
 
 }
 
 .topbar{
 
+background:white;
+
+border-radius:20px;
+
+padding:25px;
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 margin-bottom:25px;
 
 }
 
-.welcome h2{
+.user{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+}
+
+.avatar{
+
+width:70px;
+
+height:70px;
+
+background:#0B5ED7;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:30px;
+
+color:white;
+
+}
+
+.user h2{
+
+font-size:30px;
+
+color:#222;
+
+}
+
+.user p{
+
+margin-top:6px;
 
 color:#0B5ED7;
+
+font-weight:600;
+
+}
+
+.datetime{
+
+display:flex;
+
+gap:35px;
+
+}
+
+.box{
+
+text-align:center;
+
+}
+
+.box i{
+
+font-size:34px;
+
+color:#0B5ED7;
+
+margin-bottom:10px;
+
+}
+
+.box h5{
+
+color:#777;
+
+margin-bottom:6px;
+
+font-size:15px;
+
+}
+
+.box p{
+
+font-size:20px;
+
+font-weight:700;
+
+color:#222;
 
 }
 
 .cards{
 
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:22px;
 
 }
-
 .card{
 
 background:#fff;
+
+border-radius:20px;
+
 padding:25px;
-border-radius:15px;
-text-align:center;
-cursor:pointer;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 transition:.3s;
+
+cursor:pointer;
 
 }
 
 .card:hover{
 
-transform:translateY(-5px);
+transform:translateY(-8px);
 
 }
 
-.card i{
+.card-icon{
 
-font-size:35px;
+width:80px;
+
+height:80px;
+
+border-radius:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:38px;
+
+margin-bottom:18px;
+
+}
+
+.blue{
+background:#EAF3FF;
 color:#0B5ED7;
-margin-bottom:15px;
+}
 
+.green{
+background:#ECFFF2;
+color:#18A84F;
+}
+
+.orange{
+background:#FFF4E7;
+color:#FF7A00;
+}
+
+.red{
+background:#FFF1F1;
+color:#E53935;
+}
+
+.cyan{
+background:#EAFDFC;
+color:#00A99D;
+}
+
+.purple{
+background:#F4EEFF;
+color:#7C3AED;
 }
 
 .card h3{
 
-font-size:18px;
+font-size:22px;
+
+margin-bottom:8px;
+
+color:#222;
 
 }
 
 .card p{
 
-margin-top:8px;
 color:#666;
 
-}
-
-@media(max-width:900px){
-
-.sidebar{
-
-width:70px;
+margin-bottom:18px;
 
 }
 
-.logo h2,
-.logo p,
-.menu span{
+.btn{
 
-display:none;
+padding:10px 20px;
 
-}
+border:none;
 
-.main{
+border-radius:10px;
 
-margin-left:70px;
+background:#0B5ED7;
 
-}
+color:#fff;
 
-.cards{
+cursor:pointer;
 
-grid-template-columns:repeat(2,1fr);
+font-size:15px;
 
 }
 
+.total{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+background:linear-gradient(135deg,#0B5ED7,#0052CC);
+
+color:#fff;
+
 }
 
-@media(max-width:600px){
+.total h1{
 
-.cards{
+font-size:58px;
 
-grid-template-columns:1fr;
+margin:15px 0;
 
 }
+
+.total h3{
+
+color:#fff;
 
 }
 
@@ -213,27 +398,47 @@ grid-template-columns:1fr;
 
 <h2>OM DIGITAL</h2>
 
-<p>E-SEVA SOFTWARE</p>
+<p>E-SEVA KENDRA</p>
 
 </div>
 
 <ul class="menu">
 
-<li><a href="dashboard.html"><i class="fa fa-home"></i><span> Dashboard</span></a></li>
+<li>
 
-<li><a href="registration.html"><i class="fa fa-user-plus"></i><span> New Registration</span></a></li>
+<a class="active" href="dashboard.html">
 
-<li><a href="registration-list.html"><i class="fa fa-list"></i><span> Registration List</span></a></li>
+<i class="fa fa-home"></i>
 
-<li><a href="renewal.html"><i class="fa fa-rotate"></i><span> Renewal</span></a></li>
+Dashboard
 
-<li><a href="renewal-list.html"><i class="fa fa-table"></i><span> Renewal List</span></a></li>
+</a>
 
-<li><a href="claim-entry.html"><i class="fa fa-file-circle-plus"></i><span> Claim Entry</span></a></li>
+</li>
 
-<li><a href="claim-list.html"><i class="fa fa-file-lines"></i><span> Claim List</span></a></li>
+<li>
 
-<li><a href="index.html"><i class="fa fa-right-from-bracket"></i><span> Logout</span></a></li>
+<a href="profile.html">
+
+<i class="fa fa-user"></i>
+
+Profile
+
+</a>
+
+</li>
+
+<li>
+
+<a href="index.html">
+
+<i class="fa fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
 
 </ul>
 
@@ -243,62 +448,253 @@ grid-template-columns:1fr;
 
 <div class="topbar">
 
-<div class="welcome">
+<div class="user">
 
-<h2>Welcome</h2>
+<div class="avatar">
 
-<p id="username"></p>
+<i class="fa fa-user"></i>
 
 </div>
-<div style="display:flex;gap:20px;flex-wrap:wrap;" class="cards">
 
+<div>
+
+<h2 id="welcomeName">
+
+Welcome Admin 👋
+
+</h2>
+
+<p>OM DIGITAL E-SEVA KENDRA</p>
+
+</div>
+
+</div>
+
+<div class="datetime">
+
+<div class="box">
+
+<i class="fa fa-calendar-days"></i>
+
+<h5>Date</h5>
+
+<p id="todayDate"></p>
+
+</div>
+
+<div class="box">
+
+<i class="fa fa-clock"></i>
+
+<h5>Time</h5>
+
+<p id="todayTime"></p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="cards">
 <div class="card" onclick="location.href='registration.html'">
+
+<div class="card-icon blue">
 <i class="fa fa-user-plus"></i>
+</div>
+
 <h3>New Registration</h3>
-<p>Create New Registration</p>
+
+<p>Create New Worker Registration</p>
+
+<button class="btn">
+New Entry
+</button>
+
 </div>
 
 <div class="card" onclick="location.href='registration-list.html'">
+
+<div class="card-icon green">
 <i class="fa fa-list"></i>
+</div>
+
 <h3>Registration List</h3>
-<p>View Registrations</p>
+
+<p>View All Registrations</p>
+
+<button class="btn">
+View List
+</button>
+
+</div>
+
+<div class="card total">
+
+<h3>Total Registration</h3>
+
+<h1 id="totalRegistration">
+
+0
+
+</h1>
+
+<p>Total Records</p>
+
 </div>
 
 <div class="card" onclick="location.href='renewal.html'">
+
+<div class="card-icon orange">
 <i class="fa fa-rotate"></i>
-<h3>Renewal</h3>
-<p>Renew Worker</p>
+</div>
+
+<h3>Renewal Entry</h3>
+
+<p>Worker Renewal Form</p>
+
+<button class="btn">
+Renew Now
+</button>
+
 </div>
 
 <div class="card" onclick="location.href='renewal-list.html'">
-<i class="fa fa-table"></i>
+
+<div class="card-icon red">
+<i class="fa fa-clipboard-list"></i>
+</div>
+
 <h3>Renewal List</h3>
-<p>View Renewals</p>
+
+<p>View All Renewals</p>
+
+<button class="btn">
+View List
+</button>
+
+</div>
+
+<div class="card total">
+
+<h3>Total Renewal</h3>
+
+<h1 id="totalRenewal">
+
+0
+
+</h1>
+
+<p>Total Records</p>
+
 </div>
 
 <div class="card" onclick="location.href='claim-entry.html'">
+
+<div class="card-icon cyan">
 <i class="fa fa-file-circle-plus"></i>
+</div>
+
 <h3>Claim Entry</h3>
-<p>Create Claim</p>
+
+<p>Create New Claim</p>
+
+<button class="btn">
+New Claim
+</button>
+
 </div>
 
 <div class="card" onclick="location.href='claim-list.html'">
+
+<div class="card-icon purple">
 <i class="fa fa-file-lines"></i>
+</div>
+
 <h3>Claim List</h3>
-<p>View Claims</p>
+
+<p>View All Claims</p>
+
+<button class="btn">
+View List
+</button>
+
 </div>
 
-<div class="card">
-<i class="fa fa-chart-column"></i>
+<div class="card total">
+
 <h3>Total Claims</h3>
-<h2 id="claimCount">0</h2>
+
+<h1 id="totalClaim">
+
+0
+
+</h1>
+
+<p>Total Records</p>
+
+</div>
 </div>
 
-<div class="card" id="adminCard" style="display:none">
-<i class="fa fa-users"></i>
-<h3>User Management</h3>
-<p>Admin Only</p>
-</div>
+<div class="activity">
+
+<h2>Today's Activity</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Module</th>
+<th>Total Entry</th>
+<th>Status</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>New Registration</td>
+
+<td id="regCount">0</td>
+
+<td style="color:green;font-weight:bold;">
+Active
+</td>
+
+</tr>
+
+<tr>
+
+<td>Renewal Entry</td>
+
+<td id="renCount">0</td>
+
+<td style="color:green;font-weight:bold;">
+Active
+</td>
+
+</tr>
+
+<tr>
+
+<td>Claim Entry</td>
+
+<td id="claimCount">0</td>
+
+<td style="color:green;font-weight:bold;">
+Active
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 </div>
 
@@ -306,25 +702,74 @@ grid-template-columns:1fr;
 
 <script>
 
+// Login User
+
 const user = JSON.parse(localStorage.getItem("user"));
 
 if(!user){
-    window.location.href="login.html";
+
+window.location="login.html";
+
 }
 
-document.getElementById("username").innerHTML =
-user.role + " : " + user.username;
+// Welcome User
 
-// Admin Only Card
-if(user.role==="Admin"){
-    document.getElementById("adminCard").style.display="block";
+document.getElementById("welcomeName").innerHTML =
+"Welcome, " + user.username + " 👋";
+
+// Live Date & Time
+
+function updateClock(){
+
+const now=new Date();
+
+document.getElementById("todayDate").innerHTML=
+now.toLocaleDateString("en-IN");
+
+document.getElementById("todayTime").innerHTML=
+now.toLocaleTimeString("en-IN");
+
 }
 
-// Total Claims
-let claims = JSON.parse(localStorage.getItem("claims")) || [];
-document.getElementById("claimCount").innerHTML = claims.length;
+updateClock();
+
+setInterval(updateClock,1000);
+
+// Registration Count
+
+let registration =
+JSON.parse(localStorage.getItem("registration")) || [];
+
+document.getElementById("totalRegistration").innerHTML =
+registration.length;
+
+document.getElementById("regCount").innerHTML =
+registration.length;
+
+// Renewal Count
+
+let renewal =
+JSON.parse(localStorage.getItem("renewal")) || [];
+
+document.getElementById("totalRenewal").innerHTML =
+renewal.length;
+
+document.getElementById("renCount").innerHTML =
+renewal.length;
+
+// Claim Count
+
+let claims =
+JSON.parse(localStorage.getItem("claims")) || [];
+
+document.getElementById("totalClaim").innerHTML =
+claims.length;
+
+document.getElementById("claimCount").innerHTML =
+claims.length;
 
 </script>
 
 </body>
+
 </html>
