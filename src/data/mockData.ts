@@ -1,0 +1,211 @@
+import { User, WorkerRegistration, WorkerRenewal, WorkerClaim, Scheme, ActivityLog, OfficeSettings } from '../types';
+
+export const INITIAL_USERS: User[] = [
+  {
+    id: 'usr-admin-1',
+    username: 'om',
+    password: '558184',
+    mobile: '7741805766',
+    name: 'Om (Admin)',
+    email: 'omkolhal026@gmail.com',
+    role: 'admin',
+    status: 'active',
+    photoUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+    permissions: {
+      canRegister: true,
+      canRenew: true,
+      canClaim: true,
+      canExport: true,
+      canSeeSearch: true,
+      canSeeClaimEntry: true,
+      canSeeRegistrationEntry: true,
+      canSeeRenewalEntry: true,
+      canSeeMasterExcelSync: true,
+      canSeePendingVerification: true,
+      canSeeMaterialDistribution: true,
+      canSeeWhatsappGroup: true,
+      canSeeIwbmsChecker: true,
+      canSeeSubAgentEntries: true,
+      canSeeSubAgentManagement: true,
+      canSeeClaimPayments: true,
+      canManageClaimPayments: true,
+      canManageCommissionSettings: true,
+      canManageExpenses: true,
+      canManageOfficerCommission: true,
+      canExportClaimPayments: true,
+    },
+    createdAt: '2025-01-01T09:00:00Z',
+    lastLogin: '2026-09-08T11:16:36Z',
+  },
+  {
+    id: 'usr-op-1',
+    username: 'Prachi',
+    password: 'operator123',
+    mobile: '7558783299',
+    name: 'Prachi (Operator)',
+    email: 'prachi@omdigitaleseva.com',
+    role: 'operator',
+    status: 'active',
+    photoUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+    permissions: {
+      canRegister: true,
+      canRenew: true,
+      canClaim: true,
+      canExport: false,
+      canSeeSearch: true,
+      canSeeClaimEntry: true,
+      canSeeRegistrationEntry: true,
+      canSeeRenewalEntry: true,
+      canSeeMasterExcelSync: true,
+      canSeePendingVerification: true,
+      canSeeMaterialDistribution: true,
+      canSeeWhatsappGroup: true,
+      canSeeIwbmsChecker: true,
+      canSeeSubAgentEntries: false,
+      canSeeSubAgentManagement: false,
+      canSeeClaimPayments: true,
+      canManageClaimPayments: true,
+      canManageCommissionSettings: false,
+      canManageExpenses: true,
+      canManageOfficerCommission: true,
+      canExportClaimPayments: true,
+    },
+    createdAt: '2025-02-10T10:15:00Z',
+    lastLogin: '2026-09-08T09:44:23Z',
+  },
+];
+
+export const SCHEMES_LIST: Scheme[] = [
+  {
+    id: 'sch-1',
+    code: 'MB-SCH-01',
+    name: 'Marriage Assistance Scheme (विवाह सहाय्य योजना)',
+    category: 'Financial',
+    amount: 30000,
+    description: 'Financial grant of ₹30,000 for registered construction worker or daughter marriage.',
+  },
+  {
+    id: 'sch-2',
+    code: 'MB-SCH-02',
+    name: 'Educational Assistance (शैक्षणिक साहाय्य योजना)',
+    category: 'Educational',
+    amount: 10000,
+    description: 'Scholarship assistance for children studying in school/college (₹10,000 to ₹25,000).',
+  },
+  {
+    id: 'sch-3',
+    code: 'MB-SCH-03',
+    name: 'Maternity Assistance (प्रसूती साहाय्य योजना)',
+    category: 'Health',
+    amount: 15000,
+    description: 'Financial assistance of ₹15,000 for female workers during child delivery.',
+  },
+  {
+    id: 'sch-4',
+    code: 'MB-SCH-04',
+    name: 'Essential Tool Kit Scheme (सुरक्षा / अवजार संच योजना)',
+    category: 'Equipment',
+    amount: 20000,
+    description: 'Provision or reimbursement for safety gear and professional building tools.',
+  },
+  {
+    id: 'sch-5',
+    code: 'MB-SCH-05',
+    name: 'Safety Kit Allowance (सुरक्षा किट भत्ता)',
+    category: 'Safety',
+    amount: 5000,
+    description: 'Allowance for helmet, boots, safety belt and reflectives.',
+  },
+  {
+    id: 'sch-6',
+    code: 'MB-SCH-06',
+    name: 'House Construction Grant (गृहनिर्माण अनुदान)',
+    category: 'Welfare',
+    amount: 150000,
+    description: 'Financial aid for building a permanent house for registered MBOCWW workers.',
+  },
+  {
+    id: 'sch-7',
+    code: 'MB-SCH-07',
+    name: 'Critical Illness / Medical Scheme (गंभीर आजार वैद्यकीय मदत)',
+    category: 'Health',
+    amount: 50000,
+    description: 'Reimbursement for hospital treatment of worker or family members.',
+  },
+];
+
+export const INITIAL_REGISTRATIONS: WorkerRegistration[] = [];
+
+export const INITIAL_RENEWALS: WorkerRenewal[] = [];
+
+export const INITIAL_CLAIMS: WorkerClaim[] = [];
+
+export const INITIAL_LOGS: ActivityLog[] = [
+  {
+    id: 'log-101',
+    timestamp: '2026-07-22T09:30:12Z',
+    username: 'admin',
+    userRole: 'admin',
+    action: 'LOGIN',
+    details: 'Admin logged in successfully from browser.',
+    ipAddress: '127.0.0.1',
+  },
+  {
+    id: 'log-102',
+    timestamp: '2026-07-22T09:12:45Z',
+    username: 'Prachi',
+    userRole: 'operator',
+    action: 'REGISTRATION_CREATE',
+    details: 'Created new MBOCWW registration REG-2026-0103 for Sachin Maruti Kamble.',
+    ipAddress: '192.168.1.10',
+  },
+  {
+    id: 'log-103',
+    timestamp: '2026-07-22T08:50:00Z',
+    username: 'Prachi',
+    userRole: 'operator',
+    action: 'CLAIM_SUBMIT',
+    details: 'Submitted claim CLM-2026-804 for Ganesh Pandurang Shinde (Total: ₹5,000).',
+    ipAddress: '192.168.1.10',
+  },
+  {
+    id: 'log-104',
+    timestamp: '2026-07-21T16:20:10Z',
+    username: 'Prachi',
+    userRole: 'operator',
+    action: 'RENEWAL_CREATE',
+    details: 'Processed 3-Year Renewal REN-2026-002 for Sunita Ramesh Pawar.',
+    ipAddress: '192.168.1.12',
+  },
+  {
+    id: 'log-105',
+    timestamp: '2026-07-21T11:05:00Z',
+    username: 'admin',
+    userRole: 'admin',
+    action: 'SETTINGS_UPDATE',
+    details: 'Updated Office settings and fee parameters.',
+    ipAddress: '127.0.0.1',
+  }
+];
+
+export const INITIAL_SETTINGS: OfficeSettings = {
+  officeName: 'OM DIGITAL E-SEVA KENDRA',
+  officeLogo: '/src/assets/images/om_digital_logo_1784806111546.jpg',
+  officeAddress: 'Shop No. 12, Main Market Yard, Near Tehsil Office, Wagholi, Pune - 412207',
+  districtName: 'Pune',
+  contactNumbers: '+91 98765 43210 / +91 91234 56789',
+  email: 'support@omdigitaleseva.com',
+  registrationFee: 100,
+  renewalFee: 50,
+  autoApproveClaims: false,
+  themeMode: 'glassmorphism',
+};
+
+export const VERIFICATION_TALUKAS = [
+  'Junnar',
+  'Ambegaon',
+  'Khed',
+  'Shirur',
+];
+
+export const MAHARASHTRA_TALUKAS = VERIFICATION_TALUKAS;
