@@ -1,6 +1,0 @@
-{
-  "name": "OM DIGITAL E-SEVA KENDRA - Worker Management Software",
-  "description": "Professional MBOCWW Worker Management ERP for Registration, Renewal, Claims, Reports, and Office Administration.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
